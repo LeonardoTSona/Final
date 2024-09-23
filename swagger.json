@@ -1,0 +1,216 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "OpenAPI definition",
+      "version": "v0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8080",
+        "description": "Generated server url"
+      }
+    ],
+    "paths": {
+      "/produto/{codigo}": {
+        "get": {
+          "tags": [
+            "produto-controller"
+          ],
+          "operationId": "obterProduto",
+          "parameters": [
+            {
+              "name": "codigo",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Produto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "produto-controller"
+          ],
+          "operationId": "atualizarProduto",
+          "parameters": [
+            {
+              "name": "codigo",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProdutoRequestDTO"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "produto-controller"
+          ],
+          "operationId": "deletarProduto",
+          "parameters": [
+            {
+              "name": "codigo",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/produto": {
+        "get": {
+          "tags": [
+            "produto-controller"
+          ],
+          "operationId": "listarProdutos",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Produto"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "produto-controller"
+          ],
+          "operationId": "criarProduto",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProdutoRequestDTO"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "ProdutoRequestDTO": {
+          "required": [
+            "codigo",
+            "nome"
+          ],
+          "type": "object",
+          "properties": {
+            "codigo": {
+              "type": "string"
+            },
+            "nome": {
+              "type": "string"
+            },
+            "altura": {
+              "type": "number",
+              "format": "float"
+            },
+            "largura": {
+              "type": "number",
+              "format": "float"
+            },
+            "qntMinima": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        },
+        "Produto": {
+          "type": "object",
+          "properties": {
+            "codigo": {
+              "type": "string"
+            },
+            "nome": {
+              "type": "string"
+            },
+            "altura": {
+              "type": "number",
+              "format": "float"
+            },
+            "largura": {
+              "type": "number",
+              "format": "float"
+            },
+            "qntMinima": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      }
+    }
+  }

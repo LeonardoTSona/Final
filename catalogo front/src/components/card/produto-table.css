@@ -1,0 +1,40 @@
+.table-produto {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+.table-produto th, .table-produto td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+  
+.table-produto th {
+    background-color: #0275d8;
+}
+
+.button-actions{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.button-actions .button-update, 
+.button-actions .button-delete {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px; 
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+}
+
+.button-actions .button-update {
+    background-color: #e69e03;
+}
+
+.button-actions .button-delete {
+    background-color: #ff0800;
+}
